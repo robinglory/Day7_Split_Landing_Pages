@@ -1,0 +1,119 @@
+*{
+   box-sizing: border-box;
+}
+:root{
+   --hover-width: 75%;
+   --other-widht: 25%;
+   --speed: 1000ms;
+}
+body{
+   font-family: 'Roboto', sans-serif;
+   position: relative;
+   width: 100%;
+   height: 100%;
+   background-color: grey;
+   overflow: hidden;
+   margin: 0;
+}
+
+h1{
+   font-size: 4rem;
+   color: #fff;
+   position:absolute;
+   left: 50%;
+   top: 20%;
+   transform: translateX(-50%);
+   white-space: nowrap;
+}
+.btn{
+   position: absolute;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   left: 50%;
+   top: 50%;
+   transform: translateX(-50%);
+   text-decoration: none;
+   color: #fff;
+   border: #fff solid 0.2rem;
+   font-size: 1rem;
+   font-weight: bold;
+   text-transform: uppercase;
+   width: 15rem;
+   padding: 1.5rem;
+}
+.split.left .btn:hover{
+   background-color: rgb(42, 39, 231) ;
+   border-color: rgb(33, 30, 231) ;
+}
+.split.right .btn:hover{
+   background-color: rgba(28, 122, 28, 1) ;
+   border-color: rgba(28, 122, 28, 1)  ;
+}
+.split{
+   position: absolute;
+   width: 50%;
+   height: 100%;
+   overflow: hidden;
+}
+.split.left{
+   left: 0;
+   background:url(Ps5.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.split.left::before{
+   content: '';
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(87, 84, 236, 0.7);
+}
+.split.right{
+   right: 0;
+   background:url(Xbox1.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.split.right::before{
+   content: '';
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(43, 43, 43, 0.8);
+}
+
+.split.right,
+.split.left,
+.split.right::before,
+.split.left::before {
+  transition: all var(--speed) ease-in-out;
+}
+
+/* Hover Width ***/
+.hover-left .left{
+   width: var(--hover-width);
+}
+.hover-left .right{
+   width: var(--other-widht);
+}
+
+.hover-right .right{
+   width: var(--hover-width);
+}
+.hover-right .left{
+   width: var(--other-widht);
+}
+
+@media (max-width: 800px) {
+   h1 {
+     font-size: 2rem;
+     top: 30%;
+   }
+ 
+   .btn {
+     padding: 1.2rem;
+     width: 12rem;
+   }
+ }
